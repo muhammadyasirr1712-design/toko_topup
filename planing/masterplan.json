@@ -1,0 +1,126 @@
+{
+  "project_identity": {
+    "name": "GameTopUp Store",
+    "type": "Website Top Up Game Otomatis",
+    "style": "Modern Gaming Store (Dark Mode, Poppins Font)",
+    "tech_stack": {
+      "frontend": ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
+      "backend": "PHP Native",
+      "database": "MySQL",
+      "server": "Apache (XAMPP / Laragon)"
+    }
+  },
+  "database_architecture": {
+    "engine": "MySQL",
+    "driver": "PHP PDO (Prepared Statements)",
+    "required_tables": [
+      "users",
+      "admin",
+      "games",
+      "kategori_game",
+      "produk",
+      "transaksi",
+      "artikel",
+      "voucher",
+      "leaderboard",
+      "metode_pembayaran",
+      "banner",
+      "testimoni",
+      "settings"
+    ]
+  },
+  "integrations": {
+    "payment_gateways": ["Midtrans", "Tripay"],
+    "whatsapp_gateways": ["Fonnte", "Wablas"]
+  },
+  "core_features": {
+    "security": ["SQL Injection Protection", "XSS Filtering", "CSRF Protection", "Secure Session Management", "Password Hashing"],
+    "frontend_modules": ["Topup System (7 Steps)", "Transaction Tracking", "Leaderboard System", "Article Management", "Gaming Calculator (Diamond & Discount)"],
+    "admin_modules": ["Sales Reports Dashboard", "Product & Price Management", "Gateway Configurations", "Content Management (Banner & Testimonial)"]
+  },
+  "execution_roadmap": [
+    {
+      "phase_id": 1,
+      "phase_name": "Requirements & Database Engineering",
+      "duration_days": 2,
+      "activities": [
+        "Menyusun flowchart bisnis top-up dan use case diagram",
+        "Merancang ERD (Entity Relationship Diagram) untuk 13 tabel",
+        "Export skema database .sql ke MySQL"
+      ]
+    },
+    {
+      "phase_id": 2,
+      "phase_name": "UI/UX Mockup & Base Project Setup",
+      "duration_days": 3,
+      "activities": [
+        "Membuat wireframe & mockup bertema Modern Gaming Store (#0F172A)",
+        "Inisialisasi struktur folder clean architecture PHP Native",
+        "Setup assets (Bootstrap 5, Font Awesome, Poppins Font) dan file koneksi database PDO"
+      ]
+    },
+    {
+      "phase_id": 3,
+      "phase_name": "Authentication & Core Frontend Pages",
+      "duration_days": 4,
+      "activities": [
+        "Membuat sistem Register & Login (dengan password_hash dan session keamanan)",
+        "Slicing halaman Home (Navbar, Slider Promo, Grid Game, Keunggulan, Testimoni, Footer)"
+      ]
+    },
+    {
+      "phase_id": 4,
+      "phase_name": "Top Up Core Engine & Checkout",
+      "duration_days": 5,
+      "activities": [
+        "Membuat modul 7 langkah top-up (Pilih game, input ID, nominal, payment, WA, voucher, checkout)",
+        "Membuat sistem validasi input ID Game dan kalkulasi harga pesanan",
+        "Generate lembar Invoice dengan status awal 'Pending'"
+      ]
+    },
+    {
+      "phase_id": 5,
+      "phase_name": "Supporting Modules & User Dashboard",
+      "duration_days": 5,
+      "activities": [
+        "Membuat Halaman Cek Transaksi berdasarkan nomor invoice & WhatsApp",
+        "Membuat sistem Leaderboard Top Spender (Harian, Mingguan, Bulanan, Tahunan)",
+        "Membuat Portal Artikel Game & Modul Kalkulator (Diamond & Diskon)",
+        "Membuat Dashboard User (Riwayat transaksi, statistik pengeluaran, edit profil)"
+      ]
+    },
+    {
+      "phase_id": 6,
+      "phase_name": "Admin Control Panel Backend",
+      "duration_days": 3,
+      "activities": [
+        "Membuat Dashboard Admin dengan widget total pendapatan dan grafik penjualan",
+        "Membuat modul CRUD Lengkap (Games, Produk, Kategori, Artikel, Voucher, Banner, Testimoni)"
+      ]
+    },
+    {
+      "phase_id": 7,
+      "phase_name": "Dual Gateway Integrations & Security Hardening",
+      "duration_days": 4,
+      "activities": [
+        "Integrasi API Midtrans & Tripay serta membuat file callback.php (Webhook otomatis)",
+        "Integrasi WhatsApp Gateway (Fonnte/Wablas) untuk notifikasi realtime",
+        "Penerapan sistem keamanan ketat (Anti SQLi, XSS filtering, token CSRF)"
+      ]
+    },
+    {
+      "phase_id": 8,
+      "phase_name": "Quality Assurance & Live Deployment",
+      "duration_days": 3,
+      "activities": [
+        "Pengujian fungsionalitas penuh (User & Admin testing) dan Bug fixing",
+        "Deployment aplikasi ke live hosting (Apache server, setup domain, dan instalasi SSL)"
+      ]
+    }
+  ],
+  "project_summary": {
+    "total_estimated_days": 29,
+    "total_estimated_weeks": 4.1,
+    "status": "Ready for Development"
+  }
+}

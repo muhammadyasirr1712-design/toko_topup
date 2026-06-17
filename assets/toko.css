@@ -1,0 +1,195 @@
+/* assets/css/toko.css */
+
+/* Tema Dasar Dark Mode */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0F172A; /* Warna latar gelap sesuai spesifikasi */
+    color: #F8FAFC;
+    overflow-x: hidden;
+}
+
+/* Kustomisasi Navbar */
+.navbar-custom {
+    background-color: #1E293B !important;
+    border-bottom: 2px solid #6D28D9; /* Garis aksen ungu */
+}
+
+/* Desain Kartu Game Grid */
+.game-card {
+    background-color: #1E293B;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none;
+    overflow: hidden;
+}
+
+/* Efek Hover Khas Gaming */
+.game-card:hover {
+    border-color: #8B5CF6; /* Warna sekunder */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(109, 40, 217, 0.3);
+}
+
+.game-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background-color: #0F172A;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+    font-size: 2rem;
+    box-shadow: inset 0 0 10px rgba(139, 92, 246, 0.2);
+}
+
+/* Banner Slider & Tombol Karusel */
+.carousel-custom-item {
+    height: 300px;
+    background: linear-gradient(135deg, #1E293B 0%, #6D28D9 100%); /* Gradasi ungu */
+}
+
+.btn-purple {
+    background-color: #6D28D9;
+    color: #F8FAFC;
+    border: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-purple:hover {
+    background-color: #8B5CF6;
+    color: #F8FAFC;
+}
+
+/* ==========================================================================
+   STYLE KOTAK NOMINAL PRODUK (ALAMAT RESPONSIF & COMPACT ALA TAKAPEDIA)
+   ========================================================================== */
+
+.kotak-item-game {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    width: 100% !important;
+    
+    /* Ukuran kecil & compact (Sangat aman untuk layar HP) */
+    min-height: 72px !important; 
+    padding: 10px 12px !important;
+    
+    /* Memaksa warna latar belakang gelap solid agar tidak hilang/transparan */
+    background-color: #1e293b !important; 
+    border: 1px solid rgba(255, 255, 255, 0.08) !important; 
+    border-radius: 8px !important;
+    
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efek saat mouse mengarah ke kotak produk */
+.kotak-item-game:hover {
+    background-color: #243147 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Teks Judul Diamond */
+.nama-diamond-teks {
+    font-size: 0.75rem !important; 
+    font-weight: 600 !important; 
+    color: #94a3b8 !important; /* Warna abu-abu soft */
+    font-family: 'Poppins', sans-serif !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    text-align: left !important;
+}
+
+/* Bagian Bawah Penampung Icon & Harga */
+.bagian-bawah-produk {
+    margin-top: 8px !important;
+    text-align: left !important;
+    width: 100% !important;
+}
+
+.wrapper-icon-harga {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+/* Styling Ukuran Icon Game/Diamond */
+.icon-produk-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+.icon-produk-wrapper i {
+    font-size: 0.85rem !important;
+}
+
+/* Teks Harga Emas */
+.harga-gold-teks {
+    font-size: 0.85rem !important; 
+    font-weight: 700 !important; 
+    color: #fbbf24 !important; /* Kuning Amber Takapedia */
+    font-family: 'Poppins', sans-serif !important;
+}
+
+/* Lencana Kilat Instan di Kanan Bawah */
+.lencana-instan {
+    position: absolute !important; 
+    bottom: 6px !important; 
+    right: 6px !important; 
+    background-color: rgba(255, 255, 255, 0.04) !important; 
+    padding: 1px 4px !important; 
+    border-radius: 3px !important;
+    border: 1px solid rgba(255, 255, 255, 0.02) !important;
+}
+.lencana-instan span {
+    color: rgba(255, 255, 255, 0.3) !important; 
+    font-weight: 700 !important; 
+    font-size: 0.5rem !important; 
+    letter-spacing: 0.3px !important;
+    display: block !important;
+}
+
+/* ==========================================================================
+   🔥 EFEK AKTIF / DIKLIK (TIDAK AKAN BERWARNA PUTIH LAGI)
+   ========================================================================== */
+
+.input-nominal-takapedia:checked + .kotak-item-game {
+    border-color: #6D28D9 !important; /* Border Ungu Menyala */
+    
+    /* Background tetap gelap solid, diberi gradasi ungu transparan tipis di sudut kanan bawah */
+    background: linear-gradient(135deg, #1e293b 40%, rgba(109, 40, 217, 0.18) 100%) !important; 
+    
+    /* Efek pendaran cahaya ungu di sekeliling kotak */
+    box-shadow: 0 0 10px rgba(109, 40, 217, 0.3) !important; 
+}
+
+/* Saat aktif, teks nama diamond berubah jadi putih bersih terang */
+.input-nominal-takapedia:checked + .kotak-item-game .nama-diamond-teks {
+    color: #ffffff !important;
+}
+
+/* Memastikan harga tetap berwarna emas saat aktif */
+.input-nominal-takapedia:checked + .kotak-item-game .harga-gold-teks {
+    color: #fbbf24 !important;
+}
+
+/* Pastikan label bisa diklik */
+.kotak-item-game {
+    cursor: pointer !important;
+    display: block;
+    position: relative;
+    z-index: 10;
+}
+
+/* Berikan efek saat radio diaktifkan */
+.btn-check:checked + .kotak-item-game {
+    border: 2px solid #f1c40f !important;
+    background-color: #2c3e50 !important;
+}
