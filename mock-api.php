@@ -10,7 +10,7 @@ if (isset($input['id']) && $input['id'] == '2119342758') {
     echo json_encode([
         'success' => true,
         'username' => 'wann lopp dellv',
-        'server' => '(Brazil)'
+        'server' => 'Brazil'
     ]);
 } else {
     echo json_encode([
