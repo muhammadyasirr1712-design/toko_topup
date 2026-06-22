@@ -35,6 +35,7 @@ if (session_status() === PHP_SESSION_NONE) {
                     <li class="nav-item"><a class="nav-link" href="leaderboard.php">Leaderboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="artikel.php">Artikel</a></li>
                     <li class="nav-item"><a class="nav-link" href="kalkulator.php">Kalkulator</a></li>
+                    <a href="admin/dashboard.php" class="btn btn-primary">Hi, admin</a>
                     
                     <?php if (isset($_SESSION['username'])): ?>
                         <li class="nav-item ms-lg-3">
