@@ -217,13 +217,7 @@ $payments = $stmtPayment->fetchAll();
                                 }
                                 ?>
                                 <div class="col-6 col-md-4">
-                                    <input type="radio"
-                                        class="btn-check"
-                                        name="produk_id"
-                                        id="prod_<?php echo $prod['id']; ?>"
-                                        value="<?php echo $prod['id']; ?>"
-                                        autocomplete="off">
-
+                                    <input type="radio" class="btn-check" name="produk_id" id="prod_<?php echo $prod['id']; ?>" value="<?php echo $prod['id']; ?>" autocomplete="off">
                                     <label class="kotak-item-game" for="prod_<?php echo $prod['id']; ?>" style="cursor: pointer;">
                                         <div class="w-100">
                                             <span class="nama-diamond-teks"><?php echo htmlspecialchars($prod['nama_produk']); ?></span>
