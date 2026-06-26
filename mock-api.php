@@ -1,21 +1,31 @@
 <?php
-// mock-api.php
+// Mock API untuk simulasi pengecekan username
 header('Content-Type: application/json');
 
-// Membaca data yang dikirim dari browser
-$input = json_decode(file_get_contents('php://input'), true);
+// Ambil input dari request
+$user_id = $_GET['id'] ?? '';
+$zone_id = $_GET['zone'] ?? '';
 
-// Simulasi data (Ganti ID ini dengan ID yang ingin Anda tes)
-if (isset($input['id']) && $input['id'] == '2119342758') {
+// Simulasi database sederhana
+$data_mock = [
+    '2119342758' => [
+        '1453' => 'Wann Lopp Dellv :p'
+    ],
+    '1234567890' => [
+        '1234' => 'PlayerPro123'
+    ]
+];
+
+// Cek apakah ID ada di data mock
+if (isset($data_mock[$user_id]) && isset($data_mock[$user_id][$zone_id])) {
     echo json_encode([
-        'success' => true,
-        'username' => 'wann lopp dellv',
-        'server' => 'Brazil'
+        'status' => 'success',
+        'username' => $data_mock[$user_id][$zone_id]
     ]);
 } else {
     echo json_encode([
-        'success' => false,
-        'message' => 'Akun tidak ditemukan'
+        'status' => 'error',
+        'message' => 'User tidak ditemukan'
     ]);
 }
 ?>

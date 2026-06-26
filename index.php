@@ -1,14 +1,23 @@
 <?php
 // index.php
-require_once 'config/koneksi.php'; // Mengarah ke folder config
+require_once 'config/koneksi.php';
 
-// Ambil Banner Aktif
-$stmtBanner = $pdo->query("SELECT * FROM banner WHERE status = 'show'");
-$banners = $stmtBanner->fetchAll();
+// Gunakan global $pdo untuk memastikan koneksi dikenali
+global $pdo;
 
-// Ambil Seluruh Data Game Aktif
-$stmtGame = $pdo->query("SELECT * FROM games WHERE status = 'active'");
-$games = $stmtGame->fetchAll();
+try {
+    // Pastikan tabel ada, jika tidak, berikan array kosong agar tidak error di loop
+    $stmtBanner = $pdo->query("SELECT * FROM banner WHERE status = 'show'");
+    $banners = $stmtBanner->fetchAll() ?: [];
+
+    $stmtGame = $pdo->query("SELECT * FROM games WHERE status = 'active'");
+    $games = $stmtGame->fetchAll() ?: [];
+} catch (PDOException $e) {
+    // Jika database error, kita beri nilai kosong agar tidak fatal error
+    $banners = [];
+    $games = [];
+    error_log("Database Error: " . $e->getMessage());
+}
 
 include_once 'includes/header.php';
 ?>

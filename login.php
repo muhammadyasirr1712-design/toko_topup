@@ -1,5 +1,6 @@
 <?php
-require_once 'config/koneksi.php';
+require_once 'config/koneksi.php'; // Menggunakan require_once lebih aman
+global $pdo; // PENTING: Mendefinisikan bahwa kita memakai $pdo dari koneksi.php
 
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
@@ -12,16 +13,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = htmlspecialchars(trim($_POST['username']));
     $password = $_POST['password'];
 
+    // Sekarang $pdo tidak akan bernilai NULL
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
 
-    // Verifikasi password terenkripsi
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
+        $_SESSION['level'] = $user['level']; // Pastikan menyimpan level
         
-        header("Location: index.php");
+        // Logika redirect admin
+        if ($user['level'] == 'admin') {
+            header("Location: khusus%20admin/dashboardadmin.php");
+        } else {
+            header("Location: index.php");
+        }
         exit();
     } else {
         $error = "Username atau Password Anda salah!";
